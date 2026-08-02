@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>shomkee / portfolio</title>
+	<meta name="description" content="Shomka — сайты, боты, небольшие сервисы. Портфолио.">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="screen">
+	<div class="bar">
+		<span class="dots"><i></i><i></i><i></i></span>
+		<span class="path">~/shomkee</span>
+		<button id="lang" type="button">EN</button>
+	</div>
+
+	<main class="term">
+		<p class="line"><span class="ps1">shomkee@web:~$</span> <span id="boot"></span><span class="cur">_</span></p>
+
+		<section id="about">
+			<h1 data-ru="Шомка, 18 лет" data-en="Shomka, 18 y.o">Шомка, 18 лет</h1>
+			<p data-ru="Пишу веб и телеграм-ботов. Больше практики, чем теории: беру задачу, довожу до рабочего состояния, выкладываю."
+			   data-en="I build web things and telegram bots. More practice than theory: take a task, get it working, ship it.">Пишу веб и телеграм-ботов.</p>
+			<p class="muted" data-ru="Россия · открыт к заказам и стажировкам" data-en="Russia · open to freelance and internships">Россия · открыт к заказам и стажировкам</p>
+		</section>
+
+		<section id="stack">
+			<p class="line"><span class="ps1">$</span> cat stack.txt</p>
+			<ul class="tags">
+				<li>JavaScript</li>
+				<li>TypeScript</li>
+				<li>Python</li>
+				<li>HTML / CSS</li>
+				<li>aiogram</li>
+				<li>git</li>
+			</ul>
+		</section>
+
+		<section id="work">
+			<p class="line"><span class="ps1">$</span> ls projects/</p>
+			<div id="list" class="grid"></div>
+		</section>
+
+		<section id="contact">
+			<p class="line"><span class="ps1">$</span> contact --me</p>
+			<p>
+				<a href="https://github.com/shomkee">github.com/shomkee</a><br>
+				<a href="mailto:granitematteoglobal676@gmail.com">granitematteoglobal676@gmail.com</a>
+			</p>
+		</section>
+
+		<p class="line end"><span class="ps1">shomkee@web:~$</span> <span class="cur">_</span></p>
+	</main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
