@@ -1,58 +1,101 @@
 <!doctype html>
 <html lang="ru">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>shomkee / portfolio</title>
-	<meta name="description" content="Shomka — сайты, боты, небольшие сервисы. Портфолио.">
-	<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f4f0">
+  <title>Шомка — сайты, боты и цифровые эксперименты</title>
+  <meta name="description" content="Шомка / shomkee. Делаю сайты, Telegram-ботов и небольшие сервисы. Избранные проекты и интерактивная 3D-мастерская.">
+  <meta property="og:title" content="Шомка — из идеи в работающий продукт">
+  <meta property="og:description" content="Сайты, Telegram-боты, небольшие сервисы. Загляни в мою цифровую мастерскую.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shomkee.github.io/">
+  <link rel="canonical" href="https://shomkee.github.io/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <script>try{const t=localStorage.getItem('shomkee-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch{}</script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/models.js" defer></script>
+  <script src="js/scene.js" defer></script>
+  <script src="js/app.js" defer></script>
 </head>
 <body>
-<div class="screen">
-	<div class="bar">
-		<span class="dots"><i></i><i></i><i></i></span>
-		<span class="path">~/shomkee</span>
-		<button id="lang" type="button">EN</button>
-	</div>
-
-	<main class="term">
-		<p class="line"><span class="ps1">shomkee@web:~$</span> <span id="boot"></span><span class="cur">_</span></p>
-
-		<section id="about">
-			<h1 data-ru="Шомка" data-en="Shomka>Шомка</h1>
-			<p data-ru="Пишу веб и телеграм-ботов. Больше практики, чем теории: беру задачу, довожу до рабочего состояния, выкладываю."
-			   data-en="I build web things and telegram bots. More practice than theory: take a task, get it working, ship it.">Пишу веб и телеграм-ботов.</p>
-			<p class="muted" data-ru="Россия · открыт к заказам и стажировкам" data-en="Russia · open to freelance and internships">Россия · открыт к заказам и стажировкам</p>
-		</section>
-
-		<section id="stack">
-			<p class="line"><span class="ps1">$</span> cat stack.txt</p>
-			<ul class="tags">
-				<li>JavaScript</li>
-				<li>TypeScript</li>
-				<li>Python</li>
-				<li>HTML / CSS</li>
-				<li>aiogram</li>
-				<li>git</li>
-			</ul>
-		</section>
-
-		<section id="work">
-			<p class="line"><span class="ps1">$</span> ls projects/</p>
-			<div id="list" class="grid"></div>
-		</section>
-
-		<section id="contact">
-			<p class="line"><span class="ps1">$</span> contact --me</p>
-			<p>
-				<a href="https://github.com/shomkee">github.com/shomkee</a><br>
-				<a href="mailto:no@gmail.com">no@gmail.com</a>
-			</p>
-		</section>
-
-		<p class="line end"><span class="ps1">shomkee@web:~$</span> <span class="cur">_</span></p>
-	</main>
-</div>
-<script src="js/app.js"></script>
+  <svg class="icon-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M15 8V4H4v11h4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/></symbol>
+  </defs></svg>
+  <a class="skip-link" href="#main" data-ru="К содержимому" data-en="Skip to content">К содержимому</a>
+  <header class="site-header wrap">
+    <a class="brand" href="#" aria-label="shomkee — главная"><span class="brand-mark" aria-hidden="true">s.</span><span>shomkee<span class="brand-slash"> /</span></span></a>
+    <nav class="desktop-nav" aria-label="Главная навигация" data-aria-ru="Главная навигация" data-aria-en="Main navigation">
+      <a href="#work" data-ru="Проекты" data-en="Work">Проекты</a>
+      <a href="#about" data-ru="Обо мне" data-en="About">Обо мне</a>
+      <a href="#contact" data-ru="Контакт" data-en="Contact">Контакт</a>
+    </nav>
+    <div class="header-actions enhanced" hidden>
+      <button class="command-trigger" id="open-commands" type="button" aria-label="Быстрые команды" data-aria-ru="Быстрые команды" data-aria-en="Quick commands"><svg class="icon"><use href="#i-search"/></svg><kbd>⌘ K</kbd></button>
+      <button class="text-control" id="lang" type="button" aria-label="Switch to English">EN</button>
+      <button class="icon-control" id="theme" type="button" aria-label="Переключить тему" data-aria-ru="Переключить тему" data-aria-en="Toggle theme"><svg class="icon"><use href="#i-sun"/></svg></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="tiny-cross" aria-hidden="true">✳</span><span data-ru="ШОМКА / РАЗРАБОТЧИК" data-en="SHOMKA / DEVELOPER">ШОМКА / РАЗРАБОТЧИК</span></p>
+        <h1 id="hero-title"><span data-ru="Идеи — в код." data-en="Ideas to code.">Идеи — в код.</span><span class="accent-text" data-ru="Код — в дело." data-en="Code to life.">Код — в дело.</span></h1>
+        <p class="hero-description" data-ru="Делаю сайты, Telegram-ботов и небольшие сервисы. Беру задачу, довожу до рабочего состояния, выкладываю. Всё просто." data-en="I build websites, Telegram bots and small tools. Take an idea, make it work, ship it. Keep it simple.">Делаю сайты, Telegram-ботов и небольшие сервисы. Беру задачу, довожу до рабочего состояния, выкладываю. Всё просто.</p>
+        <div class="hero-actions"><a class="button primary" href="#work"><span data-ru="Посмотреть проекты" data-en="Explore my work">Посмотреть проекты</span><svg class="icon"><use href="#i-arrow"/></svg></a><a class="text-link" href="https://github.com/shomkee" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon"><use href="#i-up"/></svg></a></div>
+        <div class="hero-footnote"><span class="line-dot" aria-hidden="true"></span><span data-ru="Больше практики. Меньше лишнего." data-en="More making. Less overthinking.">Больше практики. Меньше лишнего.</span></div>
+      </div>
+      <div class="playground" id="playground">
+        <div class="scene-header"><span class="eyebrow" data-ru="ЦИФРОВАЯ МАСТЕРСКАЯ" data-en="DIGITAL WORKSHOP">ЦИФРОВАЯ МАСТЕРСКАЯ</span><span class="scene-counter mono" id="scene-count">01 / 03</span></div>
+        <div class="scene-viewport" id="scene-viewport">
+          <div class="scene-grid" aria-hidden="true"></div><span class="scene-orbit" aria-hidden="true"></span>
+          <canvas id="scene" width="800" height="760" tabindex="0" role="img" aria-label="3D мини-компьютер. Перетащи для вращения или используй стрелки на клавиатуре." data-aria-ru="3D мини-компьютер. Перетащи для вращения или используй стрелки на клавиатуре." data-aria-en="3D mini computer. Drag to rotate, or use the arrow keys." aria-describedby="scene-help" hidden></canvas>
+          <div class="scene-fallback" id="scene-fallback"><span class="fallback-mark" aria-hidden="true">&gt;_</span><p data-ru="Место для экспериментов." data-en="A place to experiment.">Место для экспериментов.</p><span class="muted" data-ru="3D требует JavaScript и WebGL. Остальной сайт работает и без них." data-en="3D needs JavaScript and WebGL. The rest of the site works without them.">3D требует JavaScript и WebGL. Остальной сайт работает и без них.</span></div>
+          <div class="scene-caption" aria-hidden="true"><span id="model-name">THE TERMINAL</span><span class="caption-rule"></span><span>OBJECT <span id="model-number">01</span></span></div>
+        </div>
+        <div class="scene-controls enhanced" hidden>
+          <div class="model-tabs" role="group" aria-label="Выбор 3D-модели" data-aria-ru="Выбор 3D-модели" data-aria-en="Choose a 3D model"><button type="button" data-model="terminal" aria-pressed="true" data-ru="Терминал" data-en="Terminal">Терминал</button><button type="button" data-model="bot" aria-pressed="false" data-ru="Бот" data-en="Bot">Бот</button><button type="button" data-model="orbit" aria-pressed="false" data-ru="Орбита" data-en="Orbit">Орбита</button></div>
+          <div class="scene-tools"><button type="button" class="icon-control" id="reset-scene" aria-label="Сбросить вращение" data-aria-ru="Сбросить вращение" data-aria-en="Reset rotation"><svg class="icon"><use href="#i-reset"/></svg></button><button type="button" class="icon-control" id="download-model" aria-label="Скачать 3D-модель glTF" data-aria-ru="Скачать 3D-модель glTF" data-aria-en="Download 3D model as glTF"><svg class="icon"><use href="#i-download"/></svg></button></div>
+        </div>
+        <div class="scene-hint enhanced" hidden><p id="scene-help" data-ru="Покрути. Здесь всё настоящее 3D." data-en="Give it a spin. Real 3D, right here.">Покрути. Здесь всё настоящее 3D.</p><button type="button" id="motion" class="motion-button" aria-pressed="false" data-ru="Автовращение" data-en="Auto-rotate">Автовращение</button></div>
+      </div>
+    </section>
+    <div class="stack-band wrap" aria-label="Технологии"><span class="eyebrow" data-ru="МОИ ИНСТРУМЕНТЫ" data-en="MY TOOLKIT">МОИ ИНСТРУМЕНТЫ</span><ul><li>JavaScript</li><li>TypeScript</li><li>Python</li><li>HTML / CSS</li><li>aiogram</li><li>Git</li></ul><span class="band-cross" aria-hidden="true">+</span></div>
+    <section id="work" class="work-section wrap" aria-labelledby="work-title">
+      <div class="section-heading"><div><p class="eyebrow"><span class="section-index">01</span><span data-ru="ИЗБРАННОЕ" data-en="SELECTED WORK">ИЗБРАННОЕ</span></p><h2 id="work-title" data-ru="Не только на словах." data-en="Made, not just imagined.">Не только на словах.</h2></div><p class="section-aside" data-ru="Небольшие проекты. Настоящая практика." data-en="Small projects. Real practice.">Небольшие проекты. Настоящая практика.</p></div>
+      <div class="work-toolbar enhanced" hidden><div class="filters" role="group" aria-label="Фильтр проектов" data-aria-ru="Фильтр проектов" data-aria-en="Filter projects"><button type="button" data-filter="all" aria-pressed="true" data-ru="Все" data-en="All">Все</button><button type="button" data-filter="web" aria-pressed="false" data-ru="Веб" data-en="Web">Веб</button><button type="button" data-filter="bots" aria-pressed="false" data-ru="Боты" data-en="Bots">Боты</button><button type="button" data-filter="desktop" aria-pressed="false">Desktop</button></div><label class="search-field"><svg class="icon"><use href="#i-search"/></svg><input id="project-search" type="search" placeholder="Найти проект" data-placeholder-ru="Найти проект" data-placeholder-en="Find a project" aria-label="Найти проект" data-aria-ru="Найти проект" data-aria-en="Find a project"></label></div>
+      <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
+      <div class="projects-grid" id="projects">
+        <article class="project-card" data-category="desktop" data-keywords="lumina-calc rust tauri svelte calculator калькулятор linux desktop">
+          <a class="project-link" href="https://github.com/shomkee/lumina-calc" target="_blank" rel="noopener noreferrer"><div class="project-art art-calc" aria-hidden="true"><span class="art-label">LUMINA / CALCULATOR</span><div class="calc-window"><div class="mini-top"><i></i><i></i><i></i></div><div class="calc-result"><small>128 × 8</small><strong>1 024<span>.</span></strong></div><div class="calc-keys"><i>AC</i><i>±</i><i>%</i><i>÷</i><i>7</i><i>8</i><i>9</i><i>×</i><i>4</i><i>5</i><i>6</i><i>−</i><i>1</i><i>2</i><i>3</i><i>+</i><i>0</i><i>.</i><i>⌫</i><i>=</i></div></div></div><div class="project-content"><div class="project-title"><h3>Lumina Calc</h3><svg class="icon"><use href="#i-up"/></svg></div><p data-ru="Калькулятор для Linux: Tauri, Rust и Svelte. Свой взгляд на повседневный инструмент." data-en="A Linux calculator built with Tauri, Rust and Svelte. A fresh take on an everyday tool.">Калькулятор для Linux: Tauri, Rust и Svelte. Свой взгляд на повседневный инструмент.</p><div class="project-meta"><span>Rust / Svelte</span><span>DESKTOP</span></div></div></a>
+        </article>
+        <article class="project-card" data-category="web" data-keywords="marketOnline typescript shop каталог магазин web">
+          <a class="project-link" href="https://github.com/shomkee/marketOnline" target="_blank" rel="noopener noreferrer"><div class="project-art art-market" aria-hidden="true"><span class="art-label">MARKET / STOREFRONT</span><div class="store-window"><div class="store-head"><b>market.</b><span>⌕ &nbsp; ▢</span></div><div class="store-feature"><span>LESS.<br>BUT BETTER.</span><div class="product-shape"></div></div><div class="store-items"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-title"><h3>marketOnline</h3><svg class="icon"><use href="#i-up"/></svg></div><p data-ru="Витрина интернет-магазина. Каталог, корзина и фильтры — всё на своих местах." data-en="An online storefront with a catalog, cart and filters. Everything in its place.">Витрина интернет-магазина. Каталог, корзина и фильтры — всё на своих местах.</p><div class="project-meta"><span>TypeScript</span><span>WEB</span></div></div></a>
+        </article>
+        <article class="project-card" data-category="bots" data-keywords="shopbot_tg python telegram aiogram bot бот магазин заказы">
+          <a class="project-link" href="https://github.com/shomkee/shopbot_tg" target="_blank" rel="noopener noreferrer"><div class="project-art art-bot" aria-hidden="true"><span class="art-label">SHOPBOT / TELEGRAM</span><div class="chat-window"><div class="chat-avatar">s<span>✓</span></div><div class="chat-bubble">/start <span>↵</span></div><div class="chat-bubble response"><b>Shop, right in chat.</b><div class="chat-lines"><i></i><i></i></div></div><div class="chat-options"><span>Catalog</span><span>My orders</span></div></div></div><div class="project-content"><div class="project-title"><h3>shopbot_tg</h3><svg class="icon"><use href="#i-up"/></svg></div><p data-ru="Магазин внутри Telegram: каталог, заказы и управление через админку." data-en="A shop inside Telegram: catalog, orders and an admin panel to manage it all.">Магазин внутри Telegram: каталог, заказы и управление через админку.</p><div class="project-meta"><span>Python</span><span>TELEGRAM BOT</span></div></div></a>
+        </article>
+        <article class="project-card compact-card" data-category="web" data-keywords="cursvalut currency валюты конвертер html javascript web"><a class="project-link" href="https://github.com/shomkee/cursvalut" target="_blank" rel="noopener noreferrer"><div class="project-content"><div class="project-symbol" aria-hidden="true">↔</div><div class="project-title"><h3>cursvalut</h3><svg class="icon"><use href="#i-up"/></svg></div><p data-ru="Курсы валют и конвертация. Данные превращаются в понятные числа." data-en="Currency rates and conversion. Turning data into useful numbers.">Курсы валют и конвертация. Данные превращаются в понятные числа.</p><div class="project-meta"><span>HTML / JavaScript</span><span>WEB</span></div></div></a></article>
+        <article class="project-card compact-card" data-category="web" data-keywords="blackhole animation анимация эксперимент html css web"><a class="project-link" href="https://github.com/shomkee/blackhole" target="_blank" rel="noopener noreferrer"><div class="project-content"><div class="project-symbol blackhole-symbol" aria-hidden="true">◉</div><div class="project-title"><h3>blackhole</h3><svg class="icon"><use href="#i-up"/></svg></div><p data-ru="Эксперимент с анимацией. Иногда хочется просто сделать что-то необычное." data-en="An animation experiment. Sometimes you just want to make something different.">Эксперимент с анимацией. Иногда хочется просто сделать что-то необычное.</p><div class="project-meta"><span>HTML / CSS</span><span>EXPERIMENT</span></div></div></a></article>
+        <article class="project-card compact-card" data-category="web" data-keywords="land landing лендинг html css web"><a class="project-link" href="https://github.com/shomkee/land" target="_blank" rel="noopener noreferrer"><div class="project-content"><div class="project-symbol" aria-hidden="true">⌘</div><div class="project-title"><h3>land</h3><svg class="icon"><use href="#i-up"/></svg></div><p data-ru="Лендинг с нуля. Чистая вёрстка и внимание к небольшим деталям." data-en="A landing page made from scratch. Clean markup and care for the little details.">Лендинг с нуля. Чистая вёрстка и внимание к небольшим деталям.</p><div class="project-meta"><span>HTML / CSS</span><span>WEB</span></div></div></a></article>
+      </div>
+      <div id="empty-results" class="empty-state" hidden><p data-ru="Такого проекта пока нет." data-en="No projects match that yet.">Такого проекта пока нет.</p><button type="button" id="clear-filters" class="text-link" data-ru="Сбросить поиск и фильтры" data-en="Clear search and filters">Сбросить поиск и фильтры</button></div>
+      <p class="project-note" data-ru="Визуальные карточки — авторские иллюстрации проектов, не скриншоты интерфейсов." data-en="Project visuals are original illustrations, not screenshots of the actual interfaces.">Визуальные карточки — авторские иллюстрации проектов, не скриншоты интерфейсов.</p>
+      <a class="all-projects text-link" href="https://github.com/shomkee?tab=repositories" target="_blank" rel="noopener noreferrer"><span data-ru="Больше кода на GitHub" data-en="More code on GitHub">Больше кода на GitHub</span><svg class="icon"><use href="#i-up"/></svg></a>
+    </section>
+    <section id="about" class="about-section wrap" aria-labelledby="about-title"><div class="about-heading"><p class="eyebrow"><span class="section-index">02</span><span data-ru="ПОДХОД" data-en="THE APPROACH">ПОДХОД</span></p><h2 id="about-title" data-ru="От «а что, если» до «готово»." data-en="From “what if” to “it works”.">От «а что, если» до «готово».</h2><p class="muted" data-ru="Я Шомка, разработчик из России. Учусь через реальные задачи и собираю вещи, которыми можно пользоваться." data-en="I'm Shomka, a developer from Russia. I learn by building real things that people can actually use.">Я Шомка, разработчик из России. Учусь через реальные задачи и собираю вещи, которыми можно пользоваться.</p></div><div class="principles"><div><span class="mono">01 /</span><div><h3 data-ru="Сначала задача" data-en="Start with the problem">Сначала задача</h3><p data-ru="Понять, что действительно нужно. Не добавлять сложность ради сложности." data-en="Understand what's actually needed. No complexity for complexity's sake.">Понять, что действительно нужно. Не добавлять сложность ради сложности.</p></div></div><div><span class="mono">02 /</span><div><h3 data-ru="Потом рабочая версия" data-en="Then make it work">Потом рабочая версия</h3><p data-ru="Собрать, попробовать, исправить. Рабочая вещь полезнее бесконечного плана." data-en="Build, try, improve. Something that works beats an endless plan.">Собрать, попробовать, исправить. Рабочая вещь полезнее бесконечного плана.</p></div></div><div><span class="mono">03 /</span><div><h3 data-ru="И немного характера" data-en="Add a little character">И немного характера</h3><p data-ru="Удобство и детали, которые хочется заметить. Как этот маленький 3D-бот." data-en="Usability and details worth noticing. Like that little 3D bot.">Удобство и детали, которые хочется заметить. Как этот маленький 3D-бот.</p></div></div></div></section>
+    <section id="contact" class="contact-section wrap" aria-labelledby="contact-title"><div class="contact-panel"><div><p class="eyebrow" data-ru="СЛЕДУЮЩИЙ ПРОЕКТ" data-en="THE NEXT PROJECT">СЛЕДУЮЩИЙ ПРОЕКТ</p><h2 id="contact-title" data-ru="Есть интересная идея?" data-en="Got an interesting idea?">Есть интересная идея?</h2><p data-ru="Начать можно с моего GitHub — там код и всё, над чем я работаю." data-en="Start with my GitHub — that's where my code and projects live.">Начать можно с моего GitHub — там код и всё, над чем я работаю.</p></div><div class="contact-actions"><a class="button primary" href="https://github.com/shomkee" target="_blank" rel="noopener noreferrer"><span data-ru="Перейти в GitHub" data-en="Find me on GitHub">Перейти в GitHub</span><svg class="icon"><use href="#i-up"/></svg></a><button class="text-link enhanced" id="copy-profile" type="button" hidden><svg class="icon"><use href="#i-copy"/></svg><span data-ru="Скопировать ссылку" data-en="Copy profile link">Скопировать ссылку</span></button></div></div></section>
+  </main>
+  <footer class="site-footer wrap"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">s.</span>shomkee</a><p data-ru="Сделано из кода и любопытства." data-en="Made of code and curiosity.">Сделано из кода и любопытства.</p><a class="text-link" href="#"><span data-ru="Наверх" data-en="Back to top">Наверх</span><span aria-hidden="true">↑</span></a></footer>
+  <dialog id="commands" aria-labelledby="command-title"><div class="command-heading"><h2 id="command-title" data-ru="Куда отправимся?" data-en="Where to next?">Куда отправимся?</h2><button id="close-commands" class="icon-control" type="button" aria-label="Закрыть команды" data-aria-ru="Закрыть команды" data-aria-en="Close commands"><svg class="icon"><use href="#i-close"/></svg></button></div><label class="command-search"><svg class="icon"><use href="#i-search"/></svg><input id="command-search" type="search" placeholder="Найти команду…" data-placeholder-ru="Найти команду…" data-placeholder-en="Find a command…" aria-label="Найти команду" data-aria-ru="Найти команду" data-aria-en="Find a command" autocomplete="off"></label><div id="command-list"></div><p id="command-empty" hidden data-ru="Команда не найдена." data-en="No commands found.">Команда не найдена.</p><div class="command-footer"><span data-ru="↑ ↓ выбор · Enter открыть" data-en="↑ ↓ select · Enter open">↑ ↓ выбор · Enter открыть</span><span>Esc</span></div></dialog>
+  <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
 </body>
 </html>
